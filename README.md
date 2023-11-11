@@ -1,6 +1,6 @@
 # Project: AirBnB Clone (@Holberton, @ALXAFRICA)
 <p align="center">
-  <img src="../AirBnB_clone/images/1.png">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/1.png">
 </p>
 
 ## **0x00. AirBnB clone - The console**
