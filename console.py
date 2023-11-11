@@ -36,7 +36,13 @@ class HBNBCommand(Cmd):
     # count = 0
 
     def do_create(self, args):
-        """Create a new instance of a class."""
+        """
+        Create a new instance of a class.
+
+        - create <class name>
+        Example:
+            create BaseModel
+        """
         args_list = args.split()
         # print("--> {}".format(args_list))
 
@@ -67,7 +73,13 @@ class HBNBCommand(Cmd):
         #                 print("** class doesn't exist **")
 
     def do_show(self, args):
-        """Show information about an instance."""
+        """
+        Show information about an instance.
+
+        - show <class name> <id>
+        Example:
+            show BaseModel 1234-1234-1234
+        """
         args_list = shlex.split(args)
 
         if len(args_list) < 1:
@@ -94,7 +106,13 @@ class HBNBCommand(Cmd):
                 return print("** no instance found **")
 
     def do_destroy(self, args):
-        """Delete an instance."""
+        """
+        Delete an instance.
+
+        - destroy BaseModel 1234-1234-1234
+        Example:
+            show <class name> <id>
+        """
         args_list = shlex.split(args)
 
         if len(args_list) < 1:
@@ -112,7 +130,13 @@ class HBNBCommand(Cmd):
                 return print("** no instance found **")
 
     def do_all(self, args):
-        """Print all instances."""
+        """
+        Print all instances.
+
+        - destroy <class name> <id>
+        Example:
+            destroy BaseModel 1234-1234-1234
+        """
         args_list = shlex.split(args)
         obj = models.storage._FileStorage__objects
 
@@ -130,6 +154,14 @@ class HBNBCommand(Cmd):
         print(obj_list)
 
     def do_update(self, args):
+        """
+        Updates an instance based on the class name
+        and id by adding or updating attribute
+
+        - update <class name> <id> <attribute name> "<attribute value>"
+        Example:
+            update BaseModel 1234-1234-1234 email "aibnb@mail.com"
+        """
         pass
 
     def emptyline(self):
