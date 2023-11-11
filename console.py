@@ -72,10 +72,8 @@ class HBNBCommand(Cmd):
 
         if len(args_list) < 1:
             print("** class name missing **")
-
         elif args_list[0] not in self.class_name.keys():
             print("** class doesn't exist **")
-
         elif len(args_list) < 2:
             print("** instance id missing **")
 
@@ -92,7 +90,6 @@ class HBNBCommand(Cmd):
                 # key = f"{args_list[0]}.{args_list[1]}"
                 obj = models.storage._FileStorage__objects
                 print(obj[key])
-
             else:
                 return print("** no instance found **")
 
@@ -102,10 +99,8 @@ class HBNBCommand(Cmd):
 
         if len(args_list) < 1:
             print("** class name missing **")
-
         elif len(args_list) < 2:
             print("** instance id missing **")
-
         else:
             input_key = f"{args_list[0]}.{args_list[1]}"
             obj = models.storage._FileStorage__objects
@@ -125,13 +120,11 @@ class HBNBCommand(Cmd):
         if len(args_list) == 0:
             for val in obj.values():
                 obj_list.append(str(val))
-
         elif args_list[0] in self.class_name.keys():
             for key, val in obj.items():
                 key = key.split(".")[0]
                 if args_list[0] == key:
                     obj_list.append(str(val))
-
         else:
             return print("** class doesn't exist **")
         print(obj_list)

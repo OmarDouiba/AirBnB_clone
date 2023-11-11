@@ -52,7 +52,6 @@ class FileStorage():
 
         for key, obj in self.__objects.items():
             new_dict[key] = obj.to_dict()
-
         with open(self.__file_path, "w",
                   encoding="utf-8") as save_file:
             dump(new_dict, save_file)
@@ -64,7 +63,6 @@ class FileStorage():
             with open(self.__file_path,
                       "r") as read_file:
                 file_data = load(read_file)
-
             for key, val in file_data.items():
                 dict_class = val["__class__"]
                 # dict_class, _ = key.split(".")

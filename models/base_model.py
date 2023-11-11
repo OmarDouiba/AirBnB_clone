@@ -57,7 +57,6 @@ class BaseModel():
         of the instance"""
         to_dict = self.__dict__
         new_dict = {}
-
         new_dict["__class__"] = type(self).__name__
 
         for k, v in to_dict.items():
