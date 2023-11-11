@@ -1,4 +1,7 @@
 # Project: AirBnB Clone (@Holberton, @ALXAFRICA)
+<p align="center">
+  <img src="../AirBnB_clone/images/1.png">
+</p>
 
 ## **0x00. AirBnB clone - The console**
 
@@ -14,20 +17,20 @@
 ### Expected web static for the final product:
 
 <p align="center">
-  <img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/fe2e3e7701dec72ce612472dab9bb55fe0e9f6d4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231111T092229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=85ae0de771aa7af9d39ee9b0ee0a133f82b8df7411d07ebeb752dd359610c955">
-  <img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/da2584da58f1d99a72f0a4d8d22c1e485468f941.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231111T092229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=32e4989efb8d48a66102b138c84c6d74c1254fd933deb500976cbdba4e606605">
+  <img src="../AirBnB_clone/images/2.png">
+  <img src="../AirBnB_clone/images/3.png">
 </p>
 
 ### Web Stack for building the product:
 
 <p align="center">
-  <img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/d2d06462824fab5846f3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231111T092229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=fd20ed624e997ccec31c5dcbcae5247b280a31378c956c712c0c14e5806ff691">
+  <img src="../AirBnB_clone/images/4.png">
 </p>
 
 ### Schemas:
 
 <p align="center">
-  <img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/99e1a8f2be8c09d5ce5ac321e8cf39f0917f8db5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231111T092229Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=27686a2ecd9f219133e2a04bed6984bf1b264a38ccae3a4a12b8c19db8d65542">
+  <img src="../AirBnB_clone/images/5.jpg">
 </p>
 
 ---
