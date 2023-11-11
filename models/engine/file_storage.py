@@ -5,6 +5,7 @@ FileStorage.py module
 from os.path import exists
 from json import dump, load
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage():
@@ -32,7 +33,8 @@ class FileStorage():
     __file_path = "file.json"
     __objects = {}
     class_name = {
-        'BaseModel': BaseModel}
+        'BaseModel': BaseModel,
+        'User': User}
 
     def all(self):
         """Return the dictionary __objects"""

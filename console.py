@@ -6,7 +6,7 @@ from cmd import Cmd
 import shlex
 import models
 from models.base_model import BaseModel
-
+from models.user import User
 
 class HBNBCommand(Cmd):
     """
@@ -32,7 +32,8 @@ class HBNBCommand(Cmd):
     """
     prompt = "(hbnb) "
     class_name = {
-        "BaseModel": BaseModel}
+        "BaseModel": BaseModel,
+        "User": User}
     # count = 0
 
     def do_create(self, args):
