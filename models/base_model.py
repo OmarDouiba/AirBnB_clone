@@ -24,20 +24,30 @@ class BaseModel():
     """
 
     def __init__(self, *args, **kwargs):
-        """Initialize instance attributes"""
-        if kwargs:
-            for k, v in kwargs.items():
-                if k != "__class__":
-                    if k == "created_at" or \
-                            k == "updated_at":
-                        date_f = datetime.fromisoformat(v)
-                        setattr(self, k, date_f)
-                    else:
-                        setattr(self, k, v)
+        """initialize variables and methods"""
+        if kwargs is not None and len(kwargs) > 0:
+            # if kwargs: # cmd line equivalent to the one above
+            for key, value in kwargs.items():
+                if key == '__class__':
+                    continue
+                if key == 'created_at' or key == 'updated_at':
+                    value = datetime.strptime(value,
+                                                       "%Y-%m-%dT%H:%M:%S.%f")
+                try:
+                    if value.isdigit():
+                        value = int(value)
+                    elif value.replace('.', '', 1).isdigit():
+                        value = float(value)
+                except AttributeError:
+                    pass
+                setattr(self, key, value)
+                # print(self.__dict__)
+        # elif len(kwargs) == 0:
+        #     continue
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
             models.storage.new(self)
 
     def __str__(self):
