@@ -14,27 +14,6 @@
 | [1. Console](https://github.com/OmarDouiba/AirBnB_clone#project-airbnb-clone-holberton-alxafrica)                                               |   Data model management via command interpreter   |
 
 
-### Expected web static for the final product:
-
-<p align="center">
-  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/2.png">
-  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/3.png">
-</p>
-
-### Web Stack for building the product:
-
-<p align="center">
-  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/4.png">
-</p>
-
-### Schemas:
-
-<p align="center">
-  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/5.jpg">
-</p>
-
----
-
 ## Part 1: 0x00. AirBnB clone - The console
 
 Part 1 of AirBnB Clone project @Holberton: The goal of this project is to deploy a server with a simple copy of the AirBnB web app to demonstrate technical grasp (dare we say mastery?) of both front & backend development.
