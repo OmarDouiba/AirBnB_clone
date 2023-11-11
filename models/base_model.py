@@ -26,7 +26,6 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """initialize variables and methods"""
         if kwargs is not None and len(kwargs) > 0:
-            # if kwargs: # cmd line equivalent to the one above
             for key, value in kwargs.items():
                 if key == '__class__':
                     continue
@@ -40,14 +39,12 @@ class BaseModel():
                         value = float(value)
                 except AttributeError:
                     pass
+
                 setattr(self, key, value)
-                # print(self.__dict__)
-        # elif len(kwargs) == 0:
-        #     continue
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
