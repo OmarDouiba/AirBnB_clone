@@ -17,20 +17,20 @@
 ### Expected web static for the final product:
 
 <p align="center">
-  <img src="../AirBnB_clone/images/2.png">
-  <img src="../AirBnB_clone/images/3.png">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/2.png">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/3.png">
 </p>
 
 ### Web Stack for building the product:
 
 <p align="center">
-  <img src="../AirBnB_clone/images/4.png">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/4.png">
 </p>
 
 ### Schemas:
 
 <p align="center">
-  <img src="../AirBnB_clone/images/5.jpg">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/5.png">
 </p>
 
 ---
