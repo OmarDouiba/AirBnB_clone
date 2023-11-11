@@ -162,7 +162,29 @@ class HBNBCommand(Cmd):
         Example:
             update BaseModel 1234-1234-1234 email "aibnb@mail.com"
         """
-        pass
+        args_list = shlex.split(args)
+        obj = models.storage._FileStorage__objects
+
+        if len(args_list) < 1:
+            print("** class name missing **")
+        elif not args_list[0] in self.class_name.keys():
+            print("** class doesn't exist **")
+        elif len(args_list) < 2:
+            print("** instance id missing **")
+        else:
+            class_key = f"{args_list[0]}.{args_list[1]}"
+            if class_key not in obj.keys():
+                print("** no instance found **")
+            elif len(args_list) < 3:
+                print("** attribute name missing **")
+            else:
+                obj_dict = obj[class_key].__dict__
+
+                if len(args_list[2]) < 4:
+                    print("** value missing **")
+                else:
+                    obj_dict[args_list[2]] = args_list[3]
+                    models.storage.save()
 
     def emptyline(self):
         """Do nothing on empty line."""
