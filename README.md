@@ -30,7 +30,7 @@
 ### Schemas:
 
 <p align="center">
-  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/5.png">
+  <img src="https://github.com/OmarDouiba/AirBnB_clone/blob/main/images/5.jpg">
 </p>
 
 ---
