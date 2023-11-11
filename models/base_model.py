@@ -18,11 +18,10 @@ class BaseModel():
         __str__(self): Return string representation of
         the instance
         save(self): Update the updated_at attribute
-        and save the instance 
+        and save the instance
         to_dict(self): Return a dictionary
         representation of the instance
     """
-   
 
     def __init__(self, *args, **kwargs):
         """Initialize instance attributes"""
@@ -30,7 +29,7 @@ class BaseModel():
             for k, v in kwargs.items():
                 if k != "__class__":
                     if k == "created_at" or \
-                        k == "updated_at":
+                            k == "updated_at":
                         date_f = datetime.fromisoformat(v)
                         setattr(self, k, date_f)
                     else:
@@ -40,19 +39,19 @@ class BaseModel():
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
-        
+
     def __str__(self):
         """Return a string representation of the instance"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
-                            # we can do type(self).__name__
-    
+    # we can do type(self).__name__
+
     def save(self):
         """Update the updated_at attribute and
         save the instance"""
         self.updated_at = datetime.now()
         models.storage.save()
-    
+
     def to_dict(self):
         """Return a dictionary representation
         of the instance"""
