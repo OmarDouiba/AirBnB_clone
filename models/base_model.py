@@ -55,7 +55,7 @@ class BaseModel():
     def to_dict(self):
         """Return a dictionary representation
         of the instance"""
-        to_dict = self.__dict__
+        to_dict = self.__dict__.copy()
         new_dict = {}
         new_dict["__class__"] = type(self).__name__
 
