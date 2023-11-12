@@ -68,16 +68,17 @@ class FileStorage():
             json.dump(new_dict, save_file)
 
     def reload(self):
-        """Deserialize the JSON file
-        (path: __file_path) to __objects"""
-
-        if path.exists(self.__file_path):
-            with open(self.__file_path,
-                      "r") as read_file:
-                file_data = json.load(read_file)
-            for key, val in file_data.items():
-                dict_class = val["__class__"]
-                # dict_class, _ = key.split(".")
-                class_n = self.class_name[dict_class]
-                if dict_class == class_n.__name__:
-                    self.__objects[key] = class_n(**val)
+        """
+        function that deserializes the JSON file to __objects
+        """
+        try:
+            with open(FileStorage.__file_path, 'r') as f:
+                f_contents = f.read()
+                dict_obj_dicts = json.loads(f_contents)
+            for key in dict_obj_dicts.keys():
+                obj_dict = dict_obj_dicts[key]
+                # FileStorage.__objects[key] = BaseModel(**obj_dict)
+                FileStorage.__objects[key] = FileStorage\
+                           .className[key.split('.')[0]](**obj_dict)
+        except FileNotFoundError:
+            pass
