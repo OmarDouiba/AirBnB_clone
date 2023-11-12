@@ -117,29 +117,27 @@ class HBNBCommand(Cmd):
             else:
                 return print("** no instance found **")
 
-    def do_destroy(self, args):
+    def do_destroy(self, arg):
+        """Destroy command to delete an instance"""
         """
-        Delete an instance.
-
-        - destroy BaseModel 1234-1234-1234
-        Example:
-            show <class name> <id>
+        method that deletes an instance of a class
+        based on the class name and id and saves the change into the JSON file
+        Ex: $ destroy BaseModel 1234-1234-1234
         """
-        args_list = shlex.split(args)
-
-        if len(args_list) < 1:
+        if not arg:
             print("** class name missing **")
-        elif len(args_list) < 2:
+            return
+        args = shlex.split(arg)
+        if args[0] not in HBNBCommand.className.keys():
+            print("** class doesn't exist **")
+        elif len(args) == 1:
             print("** instance id missing **")
+        elif args[0]+'.'+args[1] not in models.storage\
+                                              ._FileStorage__objects.keys():
+            print("** no instance found **")
         else:
-            input_key = f"{args_list[0]}.{args_list[1]}"
-            obj = models.storage._FileStorage__objects
-
-            if input_key in obj.keys():
-                del obj[input_key]
-                models.storage.save()
-            else:
-                return print("** no instance found **")
+            del models.storage._FileStorage__objects[args[0]+'.'+args[1]]
+            models.storage.save()
 
     def do_all(self, args):
         """
