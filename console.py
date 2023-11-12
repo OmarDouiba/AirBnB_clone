@@ -202,7 +202,7 @@ class HBNBCommand(Cmd):
                         args_list[3] = float(args_list[3])
 
                     obj_dict = obj[class_key]
-                    obj_dict[args_list[2]] = args_list[3]
+                    setattr(obj_dict, args_list[2], args_list[3])
                     models.storage.save()
                 except Exception:
                     pass
