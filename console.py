@@ -193,7 +193,7 @@ class HBNBCommand(Cmd):
             elif len(args_list) < 3:
                 print("** attribute name missing **")
             else:
-                obj_dict = obj[class_key].__dict__
+                obj_dict = obj[class_key]
 
                 if len(args_list[2]) < 4:
                     print("** value missing **")
@@ -203,7 +203,7 @@ class HBNBCommand(Cmd):
                             args_list[3] = int(args_list[3])
                         elif args_list[3].replace('.', '').isdigit():
                             args_list[3] = float(args_list[3])
-                        obj_dict[args_list[2]] = args_list[3]
+                        setattr(obj_dict, args_list[2], args_list[3])
                         models.storage.save()
                     except Exception:
                         pass
