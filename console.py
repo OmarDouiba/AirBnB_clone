@@ -130,7 +130,7 @@ class HBNBCommand(Cmd):
         if len(args_list) < 1:
             print("** class name missing **")
         elif not args_list[0] in self.class_name.keys():
-                print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(args_list) < 2:
             print("** instance id missing **")
         else:
@@ -167,7 +167,6 @@ class HBNBCommand(Cmd):
             return print(obj_list)
         else:
             return print("** class doesn't exist **")
-        
 
     def do_update(self, args):
         """
