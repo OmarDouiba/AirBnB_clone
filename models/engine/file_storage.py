@@ -48,23 +48,23 @@ class FileStorage():
 
     def all(self):
         """Return the dictionary __objects"""
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """Set in __objects the obj with
         key <obj class name>.id"""
         key = "{}.{}".format(type(obj).__name__,
                              obj.id)
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """Serialize __objects to the
         JSON file (path: __file_path)"""
         new_dict = {}
 
-        for key, obj in FileStorage().__objects.items():
+        for key, obj in FileStorage.__objects.items():
             new_dict[key] = obj.to_dict()
-        with open(FileStorage().__file_path, "w",
+        with open(FileStorage.__file_path, "w",
                   encoding="utf-8") as save_file:
             json.dump(new_dict, save_file)
 
@@ -72,13 +72,13 @@ class FileStorage():
         """Deserialize the JSON file
         (path: __file_path) to __objects"""
 
-        if path.exists(self.__file_path):
-            with open(self.__file_path,
+        if path.exists(FileStorage.__file_path):
+            with open(FileStorage.__file_path,
                       "r") as read_file:
                 file_data = json.load(read_file)
             for key, val in file_data.items():
                 dict_class = val["__class__"]
                 # dict_class, _ = key.split(".")
-                class_n = self.class_name[dict_class]
+                class_n = FileStorage.class_name[dict_class]
                 if dict_class == class_n.__name__:
-                    self.__objects[key] = class_n(**val)
+                    FileStorage.__objects[key] = class_n(**val)
