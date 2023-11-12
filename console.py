@@ -156,59 +156,49 @@ class HBNBCommand(Cmd):
         if len(args_list) == 0:
             for val in obj.values():
                 obj_list.append(str(val))
+            return print(obj_list)
         elif args_list[0] in self.class_name.keys():
             for key, val in obj.items():
                 key = key.split(".")[0]
                 if args_list[0] == key:
                     obj_list.append(str(val))
+            return print(obj_list)
         else:
             return print("** class doesn't exist **")
-        print(obj_list)
+        
 
-    def do_update(self, arg):
-        """Update command to add or update attributes"""
+    def do_update(self, args):
         """
-        method that updates an instance/object based on the class name and id
-        by adding or updating attribute (save the change into the JSON file).
-        Ex: $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
+        Updates an instance based on the class name
+        and id by adding or updating attribute
+
+        - update <class name> <id> <attribute name> "<attribute value>"
+        Example:
+            update BaseModel 1234-1234-1234 email "aibnb@mail.com"
         """
-        if not arg:
+        args_list = shlex.split(args)
+        obj = models.storage._FileStorage__objects
+
+        if len(args_list) < 1:
             print("** class name missing **")
-            return
-        args = shlex.split(arg)
-        # print("do_update: {}".format(args))
-        if args[0] not in HBNBCommand.class_name.keys():
+        elif not args_list[0] in self.class_name.keys():
             print("** class doesn't exist **")
-        elif len(args) == 1:
+        elif len(args_list) < 2:
             print("** instance id missing **")
-        elif args[0]+'.'+args[1] not in models.storage\
-                                              ._FileStorage__objects.keys():
-            print("** no instance found **")
-        elif len(args) == 2:
-            print("** attribute name missing **")
-        elif len(args) == 3:
-            print("** value missing **")
         else:
-            obj = models.storage._FileStorage__objects[args[0]+'.'+args[1]]
-            if args[2] in obj.__dict__.keys():
-                try:
-                    if args[3].isdigit():
-                        args[3] = int(args[3])
-                    elif args[3].replace('.', '', 1).isdigit():
-                        args[3] = float(args[3])
-                except AttributeError:
-                    pass
-                setattr(obj, args[2], args[3])
+            class_key = f"{args_list[0]}.{args_list[1]}"
+            if class_key not in obj.keys():
+                print("** no instance found **")
+            elif len(args_list) < 3:
+                print("** attribute name missing **")
             else:
-                try:
-                    if args[3].isdigit():
-                        args[3] = int(args[3])
-                    elif args[3].replace('.', '', 1).isdigit():
-                        args[3] = float(args[3])
-                except AttributeError:
-                    pass
-                setattr(obj, args[2], args[3])
-            HBNBCommand.class_name[args[0]].save(obj)
+                obj_dict = obj[class_key].__dict__
+
+                if len(args_list[2]) < 4:
+                    print("** value missing **")
+                else:
+                    obj_dict[args_list[2]] = args_list[3]
+                    models.storage.save()
 
     def emptyline(self):
         """Do nothing on empty line."""

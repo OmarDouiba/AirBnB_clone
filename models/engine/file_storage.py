@@ -46,7 +46,7 @@ class FileStorage():
         'Place': Place,
         'Review': Review}
 
-    def all(self):
+    def all(self, cls=None):
         """Return the dictionary __objects"""
         return self.__objects
 
