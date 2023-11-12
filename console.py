@@ -202,8 +202,6 @@ class HBNBCommand(Cmd):
 
     def emptyline(self):
         """Do nothing on empty line."""
-        # return ""
-        # pass
         return False
 
     def do_quit(self, args):
