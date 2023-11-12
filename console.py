@@ -199,8 +199,15 @@ class HBNBCommand(Cmd):
                 if len(args_list[2]) < 4:
                     print("** value missing **")
                 else:
-                    obj_dict[args_list[2]] = args_list[3]
-                    models.storage.save()
+                    try:
+                        if args_list[3].isdigit():
+                            args_list[3] = int(args_list[3])
+                        elif args_list[3].replace('.', '').isdigit():
+                            args_list[3] = float(args_list[3])
+                        obj_dict[args_list[2]] = args_list[3]
+                        models.storage.save()
+                    except Exception:
+                        pass
 
     def emptyline(self):
         """Do nothing on empty line."""
