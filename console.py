@@ -58,8 +58,8 @@ class HBNBCommand(Cmd):
 
         if not args_list:
             print("** class name missing **")
-        elif args_list[0] in self.class_name.keys():
-            new_obj = self.class_name[args_list[0]]()
+        elif args_list[0] in HBNBCommand.class_name.keys():
+            new_obj = HBNBCommand.class_name[args_list[0]]()
             new_obj.save()
             print(new_obj.id)
         else:
@@ -89,7 +89,7 @@ class HBNBCommand(Cmd):
 
         if len(args_list) < 1:
             print("** class name missing **")
-        elif args_list[0] not in self.class_name.keys():
+        elif args_list[0] not in HBNBCommand.class_name.keys():
             print("** class doesn't exist **")
         elif len(args_list) < 2:
             print("** instance id missing **")
@@ -122,7 +122,7 @@ class HBNBCommand(Cmd):
 
         if len(args_list) < 1:
             print("** class name missing **")
-        elif not args_list[0] in self.class_name.keys():
+        elif not args_list[0] in HBNBCommand.class_name.keys():
             print("** class doesn't exist **")
         elif len(args_list) < 2:
             print("** instance id missing **")
@@ -152,7 +152,7 @@ class HBNBCommand(Cmd):
             for val in obj.values():
                 obj_list.append(str(val))
             return print(obj_list)
-        elif args_list[0] in self.class_name.keys():
+        elif args_list[0] in HBNBCommand.class_name.keys():
             for key, val in obj.items():
                 key = key.split(".")[0]
                 if args_list[0] == key:
@@ -175,7 +175,7 @@ class HBNBCommand(Cmd):
 
         if len(args_list) < 1:
             print("** class name missing **")
-        elif not args_list[0] in self.class_name.keys():
+        elif not args_list[0] in HBNBCommand.class_name.keys():
             print("** class doesn't exist **")
         elif len(args_list) < 2:
             print("** instance id missing **")
