@@ -2,8 +2,8 @@
 """
 FileStorage.py module
 """
-from os.path import exists
-from json import dump, load
+from os import path.exists
+import json
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -66,15 +66,15 @@ class FileStorage():
             new_dict[key] = obj.to_dict()
         with open(self.__file_path, "w",
                   encoding="utf-8") as save_file:
-            dump(new_dict, save_file)
+            json.dump(new_dict, save_file)
 
     def reload(self):
         """Deserialize the JSON file
         (path: __file_path) to __objects"""
-        if exists(self.__file_path):
+        if path.exists(self.__file_path):
             with open(self.__file_path,
                       "r") as read_file:
-                file_data = load(read_file)
+                file_data = json.load(read_file)
             for key, val in file_data.items():
                 dict_class = val["__class__"]
                 # dict_class, _ = key.split(".")
