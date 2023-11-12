@@ -193,7 +193,7 @@ class HBNBCommand(Cmd):
             elif len(args_list) < 3:
                 print("** attribute name missing **")
             elif len(args_list) < 4:
-                    print("** value missing **")
+                print("** value missing **")
             else:
                 try:
                     if args_list[3].isdigit():
