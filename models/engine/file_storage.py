@@ -62,7 +62,7 @@ class FileStorage():
         JSON file (path: __file_path)"""
         new_dict = {}
 
-        for key, obj in FileStorage().__objects.items():
+        for key, obj in self.__objects.items():
             new_dict[key] = obj.to_dict()
         with open(FileStorage().__file_path, "w",
                   encoding="utf-8") as save_file:
