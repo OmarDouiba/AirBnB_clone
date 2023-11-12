@@ -192,23 +192,20 @@ class HBNBCommand(Cmd):
                 print("** no instance found **")
             elif len(args_list) < 3:
                 print("** attribute name missing **")
-            else:
-                obj_dict = obj[class_key]
-                print(obj_dict)
-                print(type(obj_dict))
-
-                if len(args_list[2]) < 4:
+            elif len(args_list[2]) < 4:
                     print("** value missing **")
-                else:
-                    try:
-                        if args_list[3].isdigit():
-                            args_list[3] = int(args_list[3])
-                        elif args_list[3].replace('.', '').isdigit():
-                            args_list[3] = float(args_list[3])
-                        setattr(obj_dict, args_list[2], args_list[3])
-                        self.class_name[args_list[0]].save(obj_dict)
-                    except Exception:
-                        pass
+            else:
+                try:
+                    if args_list[3].isdigit():
+                        args_list[3] = int(args_list[3])
+                    elif args_list[3].replace('.', '').isdigit():
+                        args_list[3] = float(args_list[3])
+                    
+                    obj_dict = obj[class_key]
+                    setattr(obj_dict, args_list[2], args_list[3])
+                    self.class_name[args_list[0]].save(obj_dict)
+                except Exception:
+                    pass
 
     def emptyline(self):
         """Do nothing on empty line."""
