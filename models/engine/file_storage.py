@@ -35,16 +35,15 @@ class FileStorage():
         reload(self): Deserialize the JSON
         file (path: __file_path) to __objects
     """
-    __file_path = "file.json"
+    __file_path = 'file.json'
     __objects = {}
-    class_name = {
-        'BaseModel': BaseModel,
-        'User': User,
-        'State': State,
-        'City': City,
-        'Amenity': Amenity,
-        'Place': Place,
-        'Review': Review}
+    className = {'BaseModel': BaseModel,
+                 'User': User,
+                 'State': State,
+                 'City': City,
+                 'Amenity': Amenity,
+                 'Place': Place,
+                 'Review': Review}
 
     def all(self):
         """Return the dictionary __objects"""
