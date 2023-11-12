@@ -1,20 +1,14 @@
 #!/usr/bin/python3
 """
 Unittest for the City class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_city.py
 """
 import unittest
 import pep8
 from os import path, remove
 import datetime
 import models
-# from models import base_model
 from models import city
-# from models.base_model import BaseModel
 from models.city import City
-# from models import engine
-# from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
 
@@ -145,8 +139,6 @@ class TestCity(unittest.TestCase):
     def test_save(self):
         """Test save method"""
 
-        # storage = FileStorage()
-
         ci = City()
         temp = ci.__dict__['updated_at']
         self.assertFalse(path.isfile('file.json'))
@@ -154,7 +146,6 @@ class TestCity(unittest.TestCase):
         self.assertTrue(path.isfile('file.json'))
         self.assertNotEqual(ci.__dict__['updated_at'], temp)
         temp = ci.__dict__['updated_at']
-        # storage.reload()
         models.storage.reload()
         self.assertEqual(ci.__dict__['updated_at'], temp)
 

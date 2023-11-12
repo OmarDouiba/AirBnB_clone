@@ -1,20 +1,14 @@
 #!/usr/bin/python3
 """
 Unittest for the Place class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_place.py
 """
 import unittest
 import pep8
 from os import path, remove
 import datetime
 import models
-# from models import base_model
 from models import place
-# from models.base_model import BaseModel
 from models.place import Place
-# from models import engine
-# from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
 
@@ -181,8 +175,6 @@ class TestPlace(unittest.TestCase):
     def test_save(self):
         """Test save method"""
 
-        # storage = FileStorage()
-
         pl = Place()
         temp = pl.__dict__['updated_at']
         self.assertFalse(path.isfile('file.json'))
@@ -190,7 +182,6 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(path.isfile('file.json'))
         self.assertNotEqual(pl.__dict__['updated_at'], temp)
         temp = pl.__dict__['updated_at']
-        # storage.reload()
         models.storage.reload()
         self.assertEqual(pl.__dict__['updated_at'], temp)
 

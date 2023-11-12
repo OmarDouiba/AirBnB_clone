@@ -45,6 +45,7 @@ class HBNBCommand(Cmd):
         'Amenity': Amenity,
         'Place': Place,
         'Review': Review}
+    class_fun = ['all', 'show', 'update', 'create']
 
     def do_create(self, args):
         """
@@ -199,6 +200,23 @@ class HBNBCommand(Cmd):
                     models.storage.save()
                 except Exception:
                     pass
+
+    # def default(self, args):
+    #     """text"""
+    #     args_list = args.split(".")
+
+    #     if args_list[0] in self.class_name.keys():
+    #         fun = args_list[1].split('("')
+
+    #         if args_list[1].strip('()') == "all":
+    #             self.do_all(args_list[0])
+    #         elif fun[0].strip('') == "show":
+    #             arg1 = fun[0].strip('')
+    #             arg2 = fun[1].rsplit('")')
+    #             id = arg2[0]
+    #             self.do_show({arg1[1]}, {args_list[0]}, {id})
+    #         else:
+    #             pass
 
     def emptyline(self):
         """Do nothing on empty line."""

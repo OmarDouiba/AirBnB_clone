@@ -1,20 +1,14 @@
 #!/usr/bin/python3
 """
 Unittest for the State class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_state.py
 """
 import unittest
 import pep8
 from os import path, remove
 import datetime
 import models
-# from models import base_model
 from models import state
-# from models.base_model import BaseModel
 from models.state import State
-# from models import engine
-# from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
 
@@ -141,8 +135,6 @@ class TestState(unittest.TestCase):
     def test_save(self):
         """Test save method"""
 
-        # storage = FileStorage()
-
         st = State()
         temp = st.__dict__['updated_at']
         self.assertFalse(path.isfile('file.json'))
@@ -150,7 +142,6 @@ class TestState(unittest.TestCase):
         self.assertTrue(path.isfile('file.json'))
         self.assertNotEqual(st.__dict__['updated_at'], temp)
         temp = st.__dict__['updated_at']
-        # storage.reload()
         models.storage.reload()
         self.assertEqual(st.__dict__['updated_at'], temp)
 

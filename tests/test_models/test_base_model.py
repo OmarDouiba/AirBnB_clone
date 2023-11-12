@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
 Unittest for the BaseModel class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_base_model.py
 """
 import unittest
 import pep8
@@ -11,8 +9,6 @@ import datetime
 import models
 from models import base_model
 from models.base_model import BaseModel
-# from models import engine
-# from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
 
@@ -122,50 +118,31 @@ class TestBaseModel(unittest.TestCase):
         l6 = dir(ba_kw2)
         self.assertIn('first_name', l6)
         self.assertEqual(ba_kw2.__dict__['first_name'], 'John')
-        # self.assertIsInstance(ba_kw2.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw2.updated_at, datetime.datetime)
 
         ba_kw3 = BaseModel(**{"first_name": 'John'})
         l7 = dir(ba_kw3)
         self.assertIn('first_name', l7)
         self.assertEqual(ba_kw3.__dict__['first_name'], 'John')
-        # self.assertIsInstance(ba_kw3.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw3.updated_at, datetime.datetime)
 
         ba_kw4 = BaseModel(**{"age": 28})
         l8 = dir(ba_kw4)
         self.assertIn('age', l8)
         self.assertEqual(ba_kw4.__dict__['age'], 28)
-        # self.assertIsInstance(ba_kw4.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw4.updated_at, datetime.datetime)
 
         ba_kw5 = BaseModel(**{"age": 28.5})
         l9 = dir(ba_kw5)
         self.assertIn('age', l9)
         self.assertEqual(ba_kw5.__dict__['age'], 28.5)
-        # self.assertIsInstance(ba_kw5.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw5.updated_at, datetime.datetime)
 
         ba_kw6 = BaseModel(**{"age": None})
         l10 = dir(ba_kw6)
         self.assertIn('age', l10)
         self.assertEqual(ba_kw6.__dict__['age'], None)
-        # self.assertIsInstance(ba_kw6.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw6.updated_at, datetime.datetime)
 
         ba_kw7 = BaseModel(**{"age": float('inf')})
         l11 = dir(ba_kw7)
         self.assertIn('age', l11)
         self.assertEqual(ba_kw7.__dict__['age'], float('inf'))
-        # self.assertIsInstance(ba_kw7.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw7.updated_at, datetime.datetime)
-
-        # ba_kw8 = BaseModel(**{"age": float('nan')})
-        # l12 = dir(ba_kw8)
-        # self.assertIn('age', l12)
-        # self.assertEqual(ba_kw8.__dict__['age'], float('nan'))
-        # self.assertIsInstance(ba_kw8.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw8.updated_at, datetime.datetime)
 
         ba_kw9 = BaseModel(**{"first_name": "John", "last_name": "Smith"})
         l13 = dir(ba_kw9)
@@ -173,8 +150,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('last_name', l13)
         self.assertEqual(ba_kw9.__dict__['first_name'], 'John')
         self.assertEqual(ba_kw9.__dict__['last_name'], 'Smith')
-        # self.assertIsInstance(ba_kw9.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw9.updated_at, datetime.datetime)
 
         ba_kw11 = BaseModel({})
         self.assertIsInstance(ba_kw11, BaseModel)
@@ -229,34 +204,24 @@ class TestBaseModel(unittest.TestCase):
         l14 = dir(ba_kw18)
         self.assertIn('my_list', l14)
         self.assertEqual(ba_kw18.__dict__['my_list'], [1, 2])
-        # self.assertIsInstance(ba_kw18.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw18.updated_at, datetime.datetime)
 
         ba_kw19 = BaseModel(**{"my_tup": (1, 2)})
         l15 = dir(ba_kw19)
         self.assertIn('my_tup', l15)
         self.assertEqual(ba_kw19.__dict__['my_tup'], (1, 2))
-        # self.assertIsInstance(ba_kw19.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw19.updated_at, datetime.datetime)
 
         ba_kw20 = BaseModel(**{"my_set": {1, 2}})
         l16 = dir(ba_kw20)
         self.assertIn('my_set', l16)
         self.assertEqual(ba_kw20.__dict__['my_set'], {1, 2})
-        # self.assertIsInstance(ba_kw20.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw20.updated_at, datetime.datetime)
 
         ba_kw21 = BaseModel(**{"my_dict": {"a": 1}})
         l17 = dir(ba_kw21)
         self.assertIn('my_dict', l17)
         self.assertEqual(ba_kw21.__dict__['my_dict'], {"a": 1})
-        # self.assertIsInstance(ba_kw20.created_at, datetime.datetime)
-        # self.assertIsInstance(ba_kw20.updated_at, datetime.datetime)
 
     def test_save(self):
         """Test save method"""
-
-        # storage = FileStorage()
 
         ba = BaseModel()
         temp = ba.__dict__['updated_at']
@@ -265,7 +230,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(path.isfile('file.json'))
         self.assertNotEqual(ba.__dict__['updated_at'], temp)
         temp = ba.__dict__['updated_at']
-        # storage.reload()
         models.storage.reload()
         self.assertEqual(ba.__dict__['updated_at'], temp)
 
