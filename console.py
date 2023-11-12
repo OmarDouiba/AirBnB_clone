@@ -203,7 +203,7 @@ class HBNBCommand(Cmd):
                     
                     obj_dict = obj[class_key]
                     setattr(obj_dict, args_list[2], args_list[3])
-                    self.class_name[args_list[0]].save(obj_dict)
+                    models.storage.save()
                 except Exception:
                     pass
 
