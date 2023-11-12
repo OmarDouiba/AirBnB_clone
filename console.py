@@ -165,38 +165,50 @@ class HBNBCommand(Cmd):
             return print("** class doesn't exist **")
         print(obj_list)
 
-    def do_update(self, args):
+    def do_update(self, arg):
+        """Update command to add or update attributes"""
         """
-        Updates an instance based on the class name
-        and id by adding or updating attribute
-
-        - update <class name> <id> <attribute name> "<attribute value>"
-        Example:
-            update BaseModel 1234-1234-1234 email "aibnb@mail.com"
+        method that updates an instance/object based on the class name and id
+        by adding or updating attribute (save the change into the JSON file).
+        Ex: $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
         """
-        args_list = shlex.split(args)
-        obj = models.storage._FileStorage__objects
-
-        if len(args_list) < 1:
+        if not arg:
             print("** class name missing **")
-        elif not args_list[0] in self.class_name.keys():
+            return
+        args = shlex.split(arg)
+        # print("do_update: {}".format(args))
+        if args[0] not in HBNBCommand.class_name.keys():
             print("** class doesn't exist **")
-        elif len(args_list) < 2:
+        elif len(args) == 1:
             print("** instance id missing **")
+        elif args[0]+'.'+args[1] not in models.storage\
+                                              ._FileStorage__objects.keys():
+            print("** no instance found **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            print("** value missing **")
         else:
-            class_key = f"{args_list[0]}.{args_list[1]}"
-            if class_key not in obj.keys():
-                print("** no instance found **")
-            elif len(args_list) < 3:
-                print("** attribute name missing **")
+            obj = models.storage._FileStorage__objects[args[0]+'.'+args[1]]
+            if args[2] in obj.__dict__.keys():
+                try:
+                    if args[3].isdigit():
+                        args[3] = int(args[3])
+                    elif args[3].replace('.', '', 1).isdigit():
+                        args[3] = float(args[3])
+                except AttributeError:
+                    pass
+                setattr(obj, args[2], args[3])
             else:
-                obj_dict = obj[class_key].__dict__
-
-                if len(args_list[2]) < 4:
-                    print("** value missing **")
-                else:
-                    obj_dict[args_list[2]] = args_list[3]
-                    models.storage.save()
+                try:
+                    if args[3].isdigit():
+                        args[3] = int(args[3])
+                    elif args[3].replace('.', '', 1).isdigit():
+                        args[3] = float(args[3])
+                except AttributeError:
+                    pass
+                setattr(obj, args[2], args[3])
+            HBNBCommand.class_name[args[0]].save(obj)
 
     def emptyline(self):
         """Do nothing on empty line."""

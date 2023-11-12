@@ -27,13 +27,12 @@ class BaseModel():
         """Initialize instance attributes"""
         if kwargs:
             for k, v in kwargs.items():
-                if k != "__class__":
-                    if k == "created_at" or \
+                if k == "created_at" or \
                             k == "updated_at":
-                        date_f = datetime.fromisoformat(v)
-                        setattr(self, k, date_f)
-                    else:
-                        setattr(self, k, v)
+                    date_f = datetime.fromisoformat(v)
+                    setattr(self, k, date_f)
+                elif k != "__class__":
+                    setattr(self, k, v)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
