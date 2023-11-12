@@ -45,7 +45,6 @@ class HBNBCommand(Cmd):
         'Amenity': Amenity,
         'Place': Place,
         'Review': Review}
-    # count = 0
 
     def do_create(self, args):
         """
@@ -56,19 +55,13 @@ class HBNBCommand(Cmd):
             create BaseModel
         """
         args_list = args.split()
-        # print("--> {}".format(args_list))
 
         if not args_list:
             print("** class name missing **")
-
         elif args_list[0] in self.class_name.keys():
             new_obj = self.class_name[args_list[0]]()
             new_obj.save()
             print(new_obj.id)
-            # self.count += 1
-            # print(self.count)
-            # print(new_obj)
-
         else:
             print("** class doesn't exist **")
 
