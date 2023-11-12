@@ -192,7 +192,7 @@ class HBNBCommand(Cmd):
                 print("** no instance found **")
             elif len(args_list) < 3:
                 print("** attribute name missing **")
-            elif len(args_list[2]) < 4:
+            elif len(args_list) < 4:
                     print("** value missing **")
             else:
                 try:
