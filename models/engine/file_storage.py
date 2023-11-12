@@ -35,15 +35,16 @@ class FileStorage():
         reload(self): Deserialize the JSON
         file (path: __file_path) to __objects
     """
-    __file_path = 'file.json'
+    __file_path = "file.json"
     __objects = {}
-    className = {'BaseModel': BaseModel,
-                 'User': User,
-                 'State': State,
-                 'City': City,
-                 'Amenity': Amenity,
-                 'Place': Place,
-                 'Review': Review}
+    class_name = {
+        'BaseModel': BaseModel,
+        'User': User,
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Place': Place,
+        'Review': Review}
 
     def all(self):
         """Return the dictionary __objects"""
@@ -57,17 +58,15 @@ class FileStorage():
         self.__objects[key] = obj
 
     def save(self):
-        """
-        function that serializes __objects to the JSON file
-        (path: __file_path); new_dict is a new dictionary in which
-        the objects/instances have been replaced by their respective
-        dictionary representation using the to_dict method from BaseModel
-        """
+        """Serialize __objects to the
+        JSON file (path: __file_path)"""
         new_dict = {}
-        for key, obj in FileStorage.__objects.items():
+
+        for key, obj in FileStorage().__objects.items():
             new_dict[key] = obj.to_dict()
-        with open(FileStorage.__file_path, 'w') as f:
-            f.write(json.dumps(new_dict))
+        with open(FileStorage().__file_path, "w",
+                  encoding="utf-8") as save_file:
+            json.dump(new_dict, save_file)
 
     def reload(self):
         """Deserialize the JSON file
