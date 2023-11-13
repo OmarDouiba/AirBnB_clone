@@ -104,11 +104,10 @@ class HBNBCommand(Cmd):
                 id_list.append(key_list)
 
             if args_list[1] in id_list:
+                key = ".".join([args_list[0], args_list[1]])
+                # key = f"{args_list[0]}.{args_list[1]}"
+                obj = models.storage._FileStorage__objects
                 try:
-
-                    key = ".".join([args_list[0], args_list[1]])
-                    # key = f"{args_list[0]}.{args_list[1]}"
-                    obj = models.storage._FileStorage__objects
                     print(obj[key])
                 except Exception:
                     pass
