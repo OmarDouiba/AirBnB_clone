@@ -104,10 +104,14 @@ class HBNBCommand(Cmd):
                 id_list.append(key_list)
 
             if args_list[1] in id_list:
-                key = ".".join([args_list[0], args_list[1]])
-                # key = f"{args_list[0]}.{args_list[1]}"
-                obj = models.storage._FileStorage__objects
-                print(obj[key])
+                try:
+
+                    key = ".".join([args_list[0], args_list[1]])
+                    # key = f"{args_list[0]}.{args_list[1]}"
+                    obj = models.storage._FileStorage__objects
+                    print(obj[key])
+                except Exception:
+                    pass
             else:
                 return print("** no instance found **")
 
@@ -201,22 +205,22 @@ class HBNBCommand(Cmd):
                 except Exception:
                     pass
 
-    # def default(self, args):
-    #     """text"""
-    #     args_list = args.split(".")
+    def default(self, args):
+        """text"""
+        args_list = args.split(".")
 
-    #     if args_list[0] in self.class_name.keys():
-    #         fun = args_list[1].split('("')
+        if args_list[0] in self.class_name.keys():
+            fun = args_list[1].split('("')
 
-    #         if args_list[1].strip('()') == "all":
-    #             self.do_all(args_list[0])
-    #         elif fun[0].strip('') == "show":
-    #             arg1 = fun[0].strip('')
-    #             arg2 = fun[1].rsplit('")')
-    #             id = arg2[0]
-    #             self.do_show({arg1[1]}, {args_list[0]}, {id})
-    #         else:
-    #             pass
+            if args_list[1].strip('()') == "all":
+                self.do_all(args_list[0])
+            elif fun[0].strip('') == "show":
+                arg1 = fun[0].strip('')
+                arg2 = fun[1].rsplit('")')
+                id = arg2[0]
+                self.do_show({arg1[1]}, {args_list[0]}, {id})
+            else:
+                pass
 
     def emptyline(self):
         """Do nothing on empty line."""
