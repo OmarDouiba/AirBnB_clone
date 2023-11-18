@@ -12,6 +12,7 @@ body
 {
     max-width: 1000px;
     margin: 30px auto;
+    padding: 0 2rem;
 }
 .btn
 {
@@ -31,4 +32,10 @@ body
     background-color: #FFFFFF; */
     transition: all 0.3s linear;
     opacity: 90%;
+}
+/* Fix float */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
