@@ -1,6 +1,5 @@
 .places h1
 {
-    font-size: 30px;
     text-transform: capitalize;
     /* align-items: start; */
 }
@@ -15,7 +14,8 @@ article
     float: left;
     /* display: inline-block; */
 }
-article h2
+article h2,
+.places h1
 {
     font-size: 30px;
 }

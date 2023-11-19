@@ -55,6 +55,7 @@
     display: none;
     /* opacity: 0;
     transition: all 0.3s linear; */
+    z-index: 1;
 }
 .locations .popover
 {
@@ -105,6 +106,107 @@ ul h2
 {
     padding: 2rem 0;
 }
+/* @media screen and (min-width: 375px)
+{
+    .btn_search
+    {
+        top: 17px;
+        right: 10px;
+        padding: .5rem 0.75rem;
+    }
+    .filter-text h4,
+    .filter-text h3
+    {
+        margin-right: 0.5rem;
+        margin-left: 0.25rem;
+    }
+    .amenities .popover
+    {
+        width: 115px;
+    }
+    .locations .popover
+    {
+        width: 93px;
+    }
+    ul
+    {
+        margin-bottom: 0.75rem;
+    }
+    ul h2
+    {
+        font-size: 15px;
+        margin-top: 1.25rem;
+    }
+    .locations .popover li
+    {
+        padding-left: 0.75rem;
+    }
+    .amenities .popover li
+    {
+        padding-left: 1rem;
+    }
+    .amenities .popover
+    {
+        padding: 0.5rem 0;
+    }
+    .amenities h4,
+    .locations h4
+    {
+        display: none;
+    }
+    .locations h3
+    {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        line-height: 20px;
 
+    }
+    .amenities h3
+    {
+        line-height: 20px;
+        padding-left: 1.5rem;
+    }
+}  */
 
-
+@media screen and (max-width: 767px) and (min-width: 400px){
+    .btn_search
+    {
+        top: 15px;
+        right: 10px;
+        padding: 0.75rem 1.5rem;
+    }
+    .filter-text h4,
+    .filter-text h3
+    {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .amenities .popover
+    {
+        width: 145.625px;
+    }
+    .locations .popover
+    {
+        width: 157.288px;
+    }
+    ul
+    {
+        margin-bottom: 0.75rem;
+    }
+    ul h2
+    {
+        margin-top: 2rem;
+    }
+    .locations .popover li
+    {
+        padding-left: 1rem;
+    }
+    .amenities .popover li
+    {
+        padding-left: 1.5rem;
+    }
+    .amenities .popover
+    {
+        padding: 1rem 0;
+    }
+}
