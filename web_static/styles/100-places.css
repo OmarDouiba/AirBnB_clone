@@ -13,19 +13,19 @@
     display: inline-block;
     position: relative;
 }
-.places h1
+.places > h1
 {
     text-transform: capitalize;
     text-align: start;
     margin-bottom: 0;
 }
-article h2
+article > h2
 {
     margin-right: 50px;
     margin-bottom: 75px;
 }
-article h2,
-.places h1
+article > h2,
+.places > h1
 {
     margin-top: 0;
     font-size: 30px;
@@ -119,7 +119,6 @@ article h2,
 .user,
 .description
 {
-    margin-left: 0.75rem;
     text-align: left;
 }
 .user .text-bold
@@ -130,18 +129,70 @@ article h2,
 {
     max-width: 400px;
 }
+/* Amenities section */
+.places article .amenities h2,
+.places article .reviews h2
+{
+    text-align: start;
+    font-size: 16px;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #DDD;
+    
+}
+.places .amenities ul
+{
+    list-style: none;
+    text-align: start;
+    line-height: 2.5;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.places .amenities ul li:nth-child(1):before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    background: url("../images/icon_tv.png")
+                    center/contain no-repeat;
+    height: 25px;
+    width: 25px;
+}
+.places .amenities ul li:nth-child(2):before
+{
+    content: "";
+    position: absolute;
+    top: 37px;
+    left: 0px;
+    background: url("../images/icon_wifi.png")
+                    center/contain no-repeat;
+    height: 25px;
+    width: 25px;
+}
+.places .amenities ul li:nth-child(3)::before
+{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 8px;
+    background: url("../images/icon_pets.png")
+                    center/contain no-repeat;
+    height: 25px;
+    width: 25px;
+}
+/* Reviews section */
 
 /* Small screen */
 @media screen and (max-width: 600px)
 {
     .places article
     {
-        padding-left: 5px;
-        margin-left: 10px;
+        padding-left: 15px;
+        margin-left: 0;
     }
     .information .max_guest
     {
-        margin-right: 2rem;
+        margin-right: 3rem;
     }
     .information .number_rooms
     {
@@ -149,6 +200,6 @@ article h2,
     }
     .information .number_bathrooms
     {
-        margin-left: 2rem;
+        margin-left: 3rem;
     }
 }

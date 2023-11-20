@@ -16,16 +16,17 @@
     padding: 1rem 5rem;
     border-radius: 4px;
 }
-.locations
+.filters .locations
 {
     border-right: 1px solid #DDD;
     height: 70px;
 }
-.amenities
+.filters .amenities
 {
     height: 70px;
 }
-.locations, .amenities
+.filters .locations,
+.filters .amenities
 {
     float: left;
     position: relative;
@@ -47,7 +48,7 @@
     margin-right: 6rem;
     line-height: 0;
 }
-.popover
+.filters .popover
 {
     position: absolute;
     margin: 0;
@@ -57,7 +58,7 @@
     transition: all 0.3s linear; */
     z-index: 1;
 }
-.locations .popover
+.filters .locations .popover
 {
     top: 70px;
     right: -1px;
@@ -66,7 +67,7 @@
     border-radius: 4px;
     width: 269.288px;
 }
-.amenities .popover
+.filters .amenities .popover
 {
     top: 70px;
     right: -1px;
@@ -75,34 +76,34 @@
     border-radius: 4px;
     width: 257.625px;
 }
-.locations:hover .popover,
-.amenities:hover .popover
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover
 {
     display: inline-block;
     /* opacity: 1; */
 }
-ul
+.filters ul
 {
     list-style: none;
     padding-left: 0;
     margin-bottom: 2rem;
     line-height: 1.25rem;
 }
-ul h2
+.filters ul h2
 {
     line-height: 0;
     margin-bottom: 0.75rem;
     margin-top: 3rem;
 }
-.locations .popover li
+.filters .locations .popover li
 {
     padding-left: 2rem;
 }
-.amenities .popover li
+.filters .amenities .popover li
 {
     padding-left: 3rem;
 }
-.amenities .popover
+.filters .amenities .popover
 {
     padding: 2rem 0;
 }
@@ -168,7 +169,7 @@ ul h2
     }
 }  */
 
-@media screen and (max-width: 767px) and (min-width: 400px){
+@media screen and (max-width: 900px) and (min-width: 400px){
     .btn_search
     {
         top: 15px;
@@ -181,31 +182,31 @@ ul h2
         margin-right: 1rem;
         margin-left: 1rem;
     }
-    .amenities .popover
+    .filters .amenities .popover
     {
         width: 145.625px;
     }
-    .locations .popover
+    .filters .locations .popover
     {
         width: 157.288px;
     }
-    ul
+    .filters ul
     {
         margin-bottom: 0.75rem;
     }
-    ul h2
+    .filters ul h2
     {
         margin-top: 2rem;
     }
-    .locations .popover li
+    .filters .locations .popover li
     {
         padding-left: 1rem;
     }
-    .amenities .popover li
+    .filters .amenities .popover li
     {
         padding-left: 1.5rem;
     }
-    .amenities .popover
+    .filters .amenities .popover
     {
         padding: 1rem 0;
     }
