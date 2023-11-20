@@ -67,7 +67,7 @@
 }
 .places .description,
 .reviews p,
-.reviews h3
+.reviews > h3
 {
     max-width: 25rem;
     margin-left: auto;
@@ -131,4 +131,22 @@
 .user .text-bold
 {
     font-weight: 700;
+}
+.places .amenities h2,
+.places .reviews h2
+{
+    border-bottom: 1px solid #DDD;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.places .reviews h3
+{
+    line-height: 0;
+    margin-bottom: 0;
+}
+.places .reviews p:not(:last-child)
+{
+    margin-bottom: 2rem;
 }
