@@ -181,9 +181,22 @@ article > h2,
     width: 25px;
 }
 /* Reviews section */
-
+.places .reviews h3,
+.places .reviews p
+{
+    text-align: start;
+}
+.places .reviews p
+{
+    margin-bottom: 2rem;
+}
+.places .reviews h3
+{
+    font-size: 14px;
+    line-height: 0;
+}
 /* Small screen */
-@media screen and (max-width: 600px)
+@media screen and (max-width: 767px)
 {
     .places article
     {
