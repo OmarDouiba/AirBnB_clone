@@ -143,8 +143,11 @@
 
 .places .reviews h3
 {
-    line-height: 0;
     margin-bottom: 0;
+}
+.places .reviews p
+{
+    margin-top: 0;
 }
 .places .reviews p:not(:last-child)
 {
